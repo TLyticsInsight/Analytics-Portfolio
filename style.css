@@ -90,3 +90,30 @@ h1, h2 {
     height: 200px;
   }
 }
+
+.simple-link-card {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  color: #007acc;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-link-card:hover {
+  background-color: #eefaff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.update-info {
+  text-align: center;
+  color: #777;
+  font-size: 0.9em;
+  margin-top: 40px;
+}

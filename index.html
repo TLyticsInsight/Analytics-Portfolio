@@ -40,11 +40,9 @@
 
   <!-- Data Analysis Graph Section (Placeholder) -->
   <section class="card" id="qiita-articles">
-    <h2>Data Analysis in Progress</h2>
+    <h2 class="section-title">Data Analysis in Progress</h2>
     <p>
-      <a href="https://github.com/TLyticsInsight/ecommerce-sales-analysis/blob/main/README.md" target="_blank">
-        Data Analysis
-      </a>.
+      <a href="https://github.com/TLyticsInsight/ecommerce-sales-analysis/blob/main/README.md" class="simple-link-card" target="_blank">Visit Data Analysis Project</a>
     </p>
   </section>
 
@@ -66,7 +64,7 @@
         const userId = 'TLyticsInsight';
         const response = await fetch(`https://qiita.com/api/v2/users/${userId}/items`);
         const articles = await response.json();
-
+  
         const articlesContainer = document.getElementById('articles-list');
         articles.forEach(article => {
           const articleElement = document.createElement('div');
@@ -74,7 +72,7 @@
           articleElement.innerHTML = `
             <div class="card-content">
               <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-                          <p>${new Date(article.created_at).toLocaleDateString()}</p>
+              <p>${new Date(article.created_at).toLocaleDateString()}</p>
             </div>
           `;
           articlesContainer.appendChild(articleElement);
@@ -83,8 +81,17 @@
         console.error('Qiita記事の取得に失敗しました', error);
       }
     }
-
-    window.onload = fetchQiitaArticles;
-  </script>
+  
+    window.onload = () => {
+      fetchQiitaArticles();
+  
+      const modified = new Date(document.lastModified);
+      const options = { year: 'numeric', month: 'short', day: 'numeric' };
+      const updateInfo = document.createElement('p');
+      updateInfo.textContent = `Last updated: ${modified.toLocaleDateString('en-US', options)}`;
+      updateInfo.className = 'update-info';
+      document.body.appendChild(updateInfo);
+    };
+  </script>  
 </body>
 </html>
