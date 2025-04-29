@@ -42,8 +42,9 @@
   <section class="card" id="qiita-articles">
     <h2 class="section-title">Data Analysis in Progress</h2>
     <p>
-      <a href="https://github.com/TLyticsInsight/ecommerce-sales-analysis/blob/main/README.md" class="simple-link-card" target="_blank">Visit Data Analysis Project</a>
+      <a href="https://github.com/TLyticsInsight/ecommerce-sales-analysis/" class="simple-link-card" target="_blank">Visit Data Analysis Project</a>
     </p>
+    <p id="last-updated"></p> <!-- ← 更新日を表示するための要素を追加 -->
   </section>
 
   <!-- Qiita記事一覧 Section -->
@@ -83,15 +84,21 @@
     }
   
     window.onload = () => {
-      fetchQiitaArticles();
-  
-      const modified = new Date(document.lastModified);
-      const options = { year: 'numeric', month: 'short', day: 'numeric' };
-      const updateInfo = document.createElement('p');
-      updateInfo.textContent = `Last updated: ${modified.toLocaleDateString('en-US', options)}`;
-      updateInfo.className = 'update-info';
-      document.body.appendChild(updateInfo);
-    };
+  fetchQiitaArticles();
+
+  const modified = new Date(document.lastModified);
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  const updateInfo = `Last updated: ${modified.toLocaleDateString('en-US', options)}`;
+
+  // 「last-updated」というIDの場所に表示する
+  const lastUpdatedElement = document.getElementById('last-updated');
+  if (lastUpdatedElement) {
+    lastUpdatedElement.textContent = updateInfo;
+  } else {
+    console.error('更新日時の表示場所が見つかりませんでした');
+  }
+};
+
   </script>  
 </body>
 </html>
