@@ -33,4 +33,5 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add qiita_articles.md
           git commit -m "Update Qiita articles" || echo "No changes to commit"
+          git pull --rebase origin main  # ★ 追加：リモートの変更を取り込む
           git push origin main
