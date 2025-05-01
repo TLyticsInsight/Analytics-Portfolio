@@ -14,7 +14,7 @@ Since mid-February 2025, I have been actively expanding my skills in data analys
 
 - 🎯 Google Analytics 4 (GA4) Certified (October 2024) – Acquired fundamental knowledge of web analytics and data-driven marketing
 - 📖 Statistics Background (University & Independent Study)
-  - Gained foundational knowledge of statistics through university coursework (2017, 2020)
+  - Studied practical statistics using Excel as a standard tool during university coursework (2017, 2020).
   - Currently integrating statistical concepts into Python for data analysis
 
 ### 💻 Programming & Tools
