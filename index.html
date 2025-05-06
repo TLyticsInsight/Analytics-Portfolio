@@ -82,23 +82,45 @@
         console.error('Qiita記事の取得に失敗しました', error);
       }
     }
-  
+
     window.onload = () => {
-  fetchQiitaArticles();
+      fetchQiitaArticles();
 
-  const modified = new Date(document.lastModified);
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  const updateInfo = `Last updated: ${modified.toLocaleDateString('en-US', options)}`;
+      const modified = new Date(document.lastModified);
+      const options = { year: 'numeric', month: 'short', day: 'numeric' };
+      const updateInfo = `Last updated: ${modified.toLocaleDateString('en-US', options)}`;
 
-  // 「last-updated」というIDの場所に表示する
-  const lastUpdatedElement = document.getElementById('last-updated');
-  if (lastUpdatedElement) {
-    lastUpdatedElement.textContent = updateInfo;
-  } else {
-    console.error('更新日時の表示場所が見つかりませんでした');
-  }
-};
+      // 「last-updated」というIDの場所に表示する
+      const lastUpdatedElement = document.getElementById('last-updated');
+      if (lastUpdatedElement) {
+        lastUpdatedElement.textContent = updateInfo;
+      } else {
+        console.error('更新日時の表示場所が見つかりませんでした');
+      }
 
-  </script>  
+      // リポジトリBのindex.htmlの更新日を取得して表示する
+      const repoOwner = "your-username";  // リポジトリBのオーナー
+      const repoName = "repoB";           // リポジトリBの名前
+      const filePath = "index.html";     // 対象のファイルパス
+
+      // rawファイルのURL
+      const rawUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/main/${filePath}`;
+
+      // HEADリクエストを送信して更新日を取得
+      fetch(rawUrl, { method: 'HEAD' })
+        .then(response => {
+          const lastModified = response.headers.get('Last-Modified');
+          if (lastModified) {
+            const formattedDate = new Date(lastModified).toLocaleDateString();
+            lastUpdatedElement.textContent = `Last Updated: ${formattedDate}`;
+          } else {
+            lastUpdatedElement.textContent = "No update date available";
+          }
+        })
+        .catch(() => {
+          lastUpdatedElement.textContent = "Failed to fetch update date";
+        });
+    };
+  </script>
 </body>
 </html>
