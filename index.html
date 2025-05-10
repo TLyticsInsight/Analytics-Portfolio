@@ -14,13 +14,14 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;  /* 横幅が広がらないようにする */
+  box-sizing: border-box; /* 余白やパディングも含めて計算 */
 }
 
 body {
   margin: 0 auto;
   max-width: 1200px; /* 必要に応じて調整 */
   padding: 0 20px;  /* スマホ用の左右余白 */
-  box-sizing: border-box; /* 余白やパディングも含めて計算 */
+  overflow-x: hidden; /* 横スクロールを防止 */
 }
 
 /* セクション全体の背景色 */
