@@ -22,10 +22,18 @@ body {
   border-radius: 8px; /* 角丸を追加 */
 }
 
-/* 見出しやその他の要素の中央寄せ */
-h1, h2 {
+/* h1のスタイル */
+h1 {
   color: #007acc; /* 明るいブルーでアクセント */
-  text-align: center; /* 見出しも中央寄せ */
+  text-align: center; /* 中央寄せ */
+  font-size: 2em; /* サイズ調整 */
+}
+
+/* h2のスタイル */
+h2 {
+  color: #007acc; /* 明るいブルーでアクセント */
+  text-align: center; /* 中央寄せ */
+  font-size: 1.5em; /* サイズ調整 */
 }
 
 /* 内容のカードやセクションごとの調整 */
