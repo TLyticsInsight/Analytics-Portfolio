@@ -121,3 +121,16 @@ h1, h2 {
   font-size: 0.9em;
   margin-top: 40px;
 }
+
+.readme-content, .markdown-body {
+  background-color: #fff !important;
+  color: #333 !important;
+}
+
+/* ダークモードでも強制的に白背景にする */
+@media (prefers-color-scheme: dark) {
+  .readme-content, .markdown-body {
+    background-color: #fff !important;
+    color: #333 !important;
+  }
+}
