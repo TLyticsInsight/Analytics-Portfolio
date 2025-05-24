@@ -82,6 +82,10 @@ h1, h2 {
 
 /* === メディアクエリ === */
 @media (max-width: 600px) {
+  .markdown-body {
+    background-color: #fff !important;
+    color: #333 !important;
+  }
   .blog-card {
     flex-direction: column;
   }
